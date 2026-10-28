@@ -4,6 +4,7 @@
     "private": true,
     "description": "Finely crafted, pixel-perfect portfolio website for developers.",
     "homepage": "https://nikhilkumarsingh.vercel.app",
+    "license": "MIT",
     "type": "module",
     "author": {
         "name": "Nikhil Kumar Singh",
