@@ -1,0 +1,52 @@
+{
+    "name": "nikhilkumarsingh.dev",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Finely crafted, pixel-perfect portfolio website for developers.",
+    "homepage": "https://nikhilkumarsingh.vercel.app",
+    "type": "module",
+    "author": {
+        "name": "Nikhil Kumar Singh",
+        "email": "connect.nikhilkumarsingh@gmail.com",
+        "url": "https://github.com/nikhilxbits"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikhilxbits/nikhilkumarsingh.dev.git"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint . --cache --cache-location .eslintcache",
+        "lint:fix": "eslint --fix . --cache --cache-location .eslintcache",
+        "format": "prettier --write . --cache",
+        "format:check": "prettier --check . --cache",
+        "clean": "rimraf .next .eslintcache tsconfig.tsbuildinfo",
+        "clean:deps": "rimraf .next node_modules .eslintcache tsconfig.tsbuildinfo"
+    },
+    "dependencies": {
+        "next": "16.4.3",
+        "react": "19.3.0",
+        "react-dom": "19.3.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/turbopack": "^4.3.3",
+        "@types/node": "^20.19.43",
+        "@types/react": "^19.3.0",
+        "@types/react-dom": "^19.3.0",
+        "babel-plugin-react-compiler": "1.0.0",
+        "eslint": "^9.39.5",
+        "eslint-config-next": "16.4.3",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-better-tailwindcss": "^4.10.0",
+        "prettier": "^3.9.10",
+        "prettier-plugin-tailwindcss": "^0.8.1",
+        "rimraf": "^6.1.3",
+        "tailwindcss": "^4.3.3",
+        "typescript": "^5.9.3"
+    },
+    "allowScripts": {
+        "unrs-resolver@1.12.2": true
+    }
+}

@@ -1,0 +1,17 @@
+node_modules
+coverage
+out
+build
+npm-debug.log*
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+.next
+.DS_Store
+*.pem
+.env
+.env.*
+!.env.example
+.vercel
+.eslintcache
+
