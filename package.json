@@ -29,6 +29,7 @@
         "clean:deps": "rimraf .next node_modules .eslintcache tsconfig.tsbuildinfo"
     },
     "dependencies": {
+        "@tabler/icons-react": "^3.50.0",
         "cn": "^0.5.0",
         "next": "16.4.3",
         "react": "19.3.0",
