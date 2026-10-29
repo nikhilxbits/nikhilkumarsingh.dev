@@ -17,6 +17,13 @@ describe("getFormattedPhoneNumber", () => {
         });
     });
 
+    it("rejects a correctly sized phone number with invalid digits", () => {
+        expect(getFormattedPhoneNumber("+6521234567")).toEqual({
+            phoneNumber: "PROVIDED PHONE NUMBER IS NOT VALID",
+            uri: "#"
+        });
+    });
+
     it("returns the original input when it cannot be parsed", () => {
         expect(getFormattedPhoneNumber("not a phone number")).toEqual({
             phoneNumber: "not a phone number",
