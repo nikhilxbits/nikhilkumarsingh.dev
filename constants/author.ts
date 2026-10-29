@@ -1,3 +1,5 @@
+import { getFormattedPhoneNumber } from "@/lib/phone-number";
+
 export const AUTHOR_INFO = {
     firstName: "Nikhil Kumar",
     lastName: "Singh",
@@ -17,7 +19,7 @@ export const AUTHOR_INFO = {
         "UI/UX Designer"
     ],
     email: process.env.USER_EMAIL || "you@example.com",
-    phoneNumber: process.env.USER_PHONE_NUMBER || "+919876543210",
+    phoneNumber: getFormattedPhoneNumber(process.env.USER_PHONE_NUMBER || "+919876543210"),
     address: "Jaipur, Rajasthan, India 302012",
     website: "https://nikhilkumarsingh.vercel.app",
     timezone: "Asia/Kolkata",
