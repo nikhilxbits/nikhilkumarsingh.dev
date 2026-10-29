@@ -1,4 +1,4 @@
-import parsePhoneNumber from "libphonenumber-js";
+import parsePhoneNumber from "libphonenumber-js/max";
 
 type GetFormattedPhoneNumber = { phoneNumber: string; uri: string };
 
