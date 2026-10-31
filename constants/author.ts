@@ -1,6 +1,9 @@
-import { getFormattedPhoneNumber } from "@/lib/phone-number";
+import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
-export const AUTHOR_INFO = {
+import { getFormattedPhoneNumber } from "@/lib/phone-number";
+import type { Author, SocialLink, SocialProfiles } from "@/types/author";
+
+const AUTHOR_INFO: Author = {
     firstName: "Nikhil Kumar",
     lastName: "Singh",
     displayName: "Nikhil Kumar Singh",
@@ -37,3 +40,22 @@ export const AUTHOR_INFO = {
         "ui/ux designer"
     ]
 };
+
+const SOCIAL_PROFILES: SocialProfiles = {
+    github: {
+        title: "GitHub",
+        icon: IconBrandGithub,
+        handle: AUTHOR_INFO.username,
+        href: `https://github.com/${AUTHOR_INFO.username}`
+    },
+    linkedin: {
+        title: "LinkedIn",
+        icon: IconBrandLinkedin,
+        handle: `in/${AUTHOR_INFO.username}`,
+        href: `https://www.linkedin.com/in/${AUTHOR_INFO.username}`
+    }
+};
+
+const SOCIAL_LINKS: SocialLink[] = Object.values(SOCIAL_PROFILES);
+
+export { AUTHOR_INFO, SOCIAL_PROFILES, SOCIAL_LINKS };
