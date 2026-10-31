@@ -1,6 +1,6 @@
 import parsePhoneNumber from "libphonenumber-js/max";
 
-type GetFormattedPhoneNumber = { phoneNumber: string; uri: string };
+export type GetFormattedPhoneNumber = { phoneNumber: string; uri: string };
 
 export function getFormattedPhoneNumber(input: string): GetFormattedPhoneNumber {
     const result = parsePhoneNumber(input);
