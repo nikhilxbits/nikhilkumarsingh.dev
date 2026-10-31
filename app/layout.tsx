@@ -51,7 +51,11 @@ export const metadata: Metadata = {
         locale: "en_US",
         type: "profile"
     },
-    twitter: { card: "summary_large_image", title: SITE_INFO.name, description: SITE_INFO.description }
+    twitter: { card: "summary_large_image", title: SITE_INFO.name, description: SITE_INFO.description },
+    icons: {
+        icon: [{ url: "/favicon.ico", sizes: "32x32" }],
+        apple: { url: "/apple-touch.png", type: "image/png", sizes: "180x180" }
+    }
 };
 
 export const viewport: Viewport = {
