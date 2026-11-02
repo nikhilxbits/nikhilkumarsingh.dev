@@ -1,6 +1,6 @@
 "use client";
 
-import { IconSun } from "@tabler/icons-react";
+import { IconBrightness } from "@tabler/icons-react";
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 
@@ -37,8 +37,9 @@ export function ModeToggle() {
                     size="icon"
                     aria-label="Mode toggle"
                     aria-pressed={mounted && resolvedTheme === "dark"}
+                    className="aria-pressed:[&_svg]:rotate-180"
                 >
-                    <IconSun />
+                    <IconBrightness className="transition-transform! duration-300" />
                     <span className="sr-only">Mode toggle</span>
                 </Button>
             </TooltipTrigger>
