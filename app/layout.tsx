@@ -8,6 +8,7 @@ import { cn } from "cn";
 import "./globals.css";
 
 import { SiteHeader } from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme/provider";
 import { SITE_INFO, VIEWPORT_THEME_COLORS } from "@/constants/site";
 import { AUTHOR_INFO } from "@/constants/author";
 
@@ -70,7 +71,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
-        <html lang="en" className={cn(inter.variable, "h-full antialiased")}>
+        <html lang="en" suppressHydrationWarning className={cn(inter.variable, "h-full antialiased")}>
             <head>
                 <script
                     type="text/javascript"
@@ -79,10 +80,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 <Script src={`data:text/javascript;base64,${btoa(darkModeScriptForViewportThemeColor)}`} />
             </head>
             <body className="flex min-h-full flex-col">
-                <Tooltip.Provider>
-                    <SiteHeader />
-                    <div className="flex grow flex-col">{children}</div>
-                </Tooltip.Provider>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                    <Tooltip.Provider>
+                        <SiteHeader />
+                        <div className="flex grow flex-col">{children}</div>
+                    </Tooltip.Provider>
+                </ThemeProvider>
             </body>
         </html>
     );
