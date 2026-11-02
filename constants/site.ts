@@ -1,6 +1,5 @@
+import { AUTHOR_INFO, SOCIAL_PROFILES } from "@/features/author/constants";
 import type { SiteInformation, SourceCodeRepository, ViewportThemeColor } from "@/types/site";
-
-import { AUTHOR_INFO, SOCIAL_PROFILES } from "./author";
 
 const REPOSITORY_HANDLE = `${SOCIAL_PROFILES.github.handle}/nikhilkumarsingh.dev`;
 
