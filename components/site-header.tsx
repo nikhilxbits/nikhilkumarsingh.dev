@@ -6,6 +6,7 @@ import { Container, ContainerWrap } from "./ui/container";
 import { Logo } from "./logo";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
+import { ModeToggle } from "./theme/mode-toggle";
 
 export function SiteHeader() {
     return (
@@ -30,6 +31,7 @@ export function SiteHeader() {
                         </TooltipTrigger>
                         <TooltipContent>{REPOSITORY_INFO.handle}</TooltipContent>
                     </Tooltip>
+                    <ModeToggle />
                 </ContainerWrap>
             </Container>
         </header>
