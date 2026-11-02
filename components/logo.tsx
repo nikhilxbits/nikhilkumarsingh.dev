@@ -1,8 +1,8 @@
 import NextLink from "next/link";
 import Image from "next/image";
 
-import { AUTHOR_INFO } from "@/constants/author";
 import { assets } from "@/assets";
+import { AUTHOR_INFO } from "@/features/author/constants";
 
 import { Link } from "./ui/link";
 

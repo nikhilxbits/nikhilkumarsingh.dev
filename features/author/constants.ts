@@ -1,7 +1,7 @@
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
 
 import { getFormattedPhoneNumber } from "@/lib/phone-number";
-import type { Author, SocialLink, SocialProfiles } from "@/types/author";
+import type { Author, SocialLink, SocialProfiles } from "./types";
 
 const AUTHOR_INFO: Author = {
     firstName: "Nikhil Kumar",

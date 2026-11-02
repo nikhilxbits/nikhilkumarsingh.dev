@@ -10,7 +10,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme/provider";
 import { SITE_INFO, VIEWPORT_THEME_COLORS } from "@/constants/site";
-import { AUTHOR_INFO } from "@/constants/author";
+import { AUTHOR_INFO } from "@/features/author/constants";
 
 const inter = Inter_Tight({
     preload: true,
