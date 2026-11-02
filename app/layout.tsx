@@ -2,10 +2,12 @@ import Script from "next/script";
 
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight } from "next/font/google";
+import { Tooltip } from "radix-ui";
 import { cn } from "cn";
 
 import "./globals.css";
 
+import { SiteHeader } from "@/components/site-header";
 import { SITE_INFO, VIEWPORT_THEME_COLORS } from "@/constants/site";
 import { AUTHOR_INFO } from "@/constants/author";
 
@@ -76,7 +78,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 />
                 <Script src={`data:text/javascript;base64,${btoa(darkModeScriptForViewportThemeColor)}`} />
             </head>
-            <body className="flex min-h-full flex-col">{children}</body>
+            <body className="flex min-h-full flex-col">
+                <Tooltip.Provider>
+                    <SiteHeader />
+                    <div className="flex grow flex-col">{children}</div>
+                </Tooltip.Provider>
+            </body>
         </html>
     );
 }
