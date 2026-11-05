@@ -1,37 +1,26 @@
 "use client";
 
-import { useMemo } from "react";
+import { startTransition, useEffect, useState } from "react";
 
+import { Flipper } from "@/components/ui/flipper";
 import { getGreetingText } from "@/lib/greeting-text";
+import { getFormattedTime } from "@/lib/get-formatted-time";
 
 function Greet() {
-    const time = useMemo(() => {
-        const now = new Date();
+    const [time, setTime] = useState<string>("00:00:00");
 
-        let hours = now.getHours();
+    useEffect(() => {
+        const interval = setInterval(() => {
+            startTransition(() => setTime(getFormattedTime()));
+        }, 1000);
 
-        const minutes = now.getMinutes().toString().padStart(2, "0");
-        const seconds = now.getSeconds() < 30 ? "00" : "30";
-        const timezoneOffset = -now.getTimezoneOffset();
-        const timezoneSign = timezoneOffset >= 0 ? "+" : "-";
-
-        const timezoneHours = Math.floor(Math.abs(timezoneOffset) / 60)
-            .toString()
-            .padStart(2, "0");
-
-        const timezoneMinutes = (Math.abs(timezoneOffset) % 60).toString().padStart(2, "0");
-        const timezone = `UTC${timezoneSign}${timezoneHours}:${timezoneMinutes}`;
-        const meridiem = hours >= 12 ? "PM" : "AM";
-
-        hours = hours % 12 || 12;
-
-        return `${timezone} ${hours.toString().padStart(2, "0")}:${minutes}:${seconds} ${meridiem}`;
+        return () => clearInterval(interval);
     }, []);
 
     return (
         <>
             <p className="text-xs/5 font-medium uppercase">{getGreetingText()}!</p>
-            <p className="text-xs/5">{time}</p>
+            <Flipper text={time} className="text-xs" />
         </>
     );
 }
