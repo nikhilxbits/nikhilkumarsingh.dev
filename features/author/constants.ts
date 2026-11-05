@@ -28,8 +28,8 @@ const AUTHOR_INFO: Author = {
         "JavaScript/TypeScript Developer",
         "UI/UX Designer"
     ],
-    email: process.env.USER_EMAIL || "you@example.com",
-    phoneNumber: getFormattedPhoneNumber(process.env.USER_PHONE_NUMBER || "+919876543210"),
+    email: process.env.USER_EMAIL || undefined,
+    phoneNumber: process.env.USER_PHONE_NUMBER ? getFormattedPhoneNumber(process.env.USER_PHONE_NUMBER) : undefined,
     address: "Jaipur, Rajasthan, India 302012",
     website: "https://nikhilkumarsingh.vercel.app",
     keywords: [
@@ -66,13 +66,26 @@ const SOCIAL_LINKS: SocialLink[] = Object.values(SOCIAL_PROFILES);
 
 const OVERVIEW: OverviewItem[] = [
     { type: "common", icon: IconBuilding, label: `${AUTHOR_INFO.currentDesignation} at ${AUTHOR_INFO.currentCompany}` },
-    { type: "email-address", icon: IconMailCheck, label: AUTHOR_INFO.email, href: `mailto:${AUTHOR_INFO.email}` },
-    {
-        type: "phone-number",
-        icon: IconPhoneCall,
-        label: AUTHOR_INFO.phoneNumber.phoneNumber,
-        href: AUTHOR_INFO.phoneNumber.uri
-    },
+    ...(AUTHOR_INFO.email
+        ? [
+              {
+                  type: "email-address" as const,
+                  icon: IconMailCheck,
+                  label: AUTHOR_INFO.email,
+                  href: `mailto:${AUTHOR_INFO.email}`
+              }
+          ]
+        : []),
+    ...(AUTHOR_INFO.phoneNumber
+        ? [
+              {
+                  type: "phone-number" as const,
+                  icon: IconPhoneCall,
+                  label: AUTHOR_INFO.phoneNumber.phoneNumber,
+                  href: AUTHOR_INFO.phoneNumber.uri
+              }
+          ]
+        : []),
     { type: "common", icon: IconMapPin, label: AUTHOR_INFO.address }
 ];
 

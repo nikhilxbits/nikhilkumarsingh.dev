@@ -13,8 +13,8 @@ type Author = {
     currentCompany: string;
     bio: string;
     typewriterSentences: string[];
-    email: string;
-    phoneNumber: GetFormattedPhoneNumber;
+    email?: string;
+    phoneNumber?: GetFormattedPhoneNumber;
     address: string;
     website: string;
     keywords: string[];
