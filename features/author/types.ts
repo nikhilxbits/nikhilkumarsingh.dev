@@ -17,7 +17,6 @@ type Author = {
     phoneNumber: GetFormattedPhoneNumber;
     address: string;
     website: string;
-    timezone: string;
     keywords: string[];
 };
 
@@ -25,4 +24,10 @@ type SocialLink = { title: string; icon: Icon; handle: string; href: string };
 
 type SocialProfiles = Record<string, SocialLink>;
 
-export type { Author, SocialLink, SocialProfiles };
+type OverviewCommonItem = { type: "common"; icon: Icon; label: string };
+
+type OverviewLinkItem = { type: "email-address" | "phone-number"; icon: Icon; label: string; href: string };
+
+type OverviewItem = OverviewCommonItem | OverviewLinkItem;
+
+export type { Author, SocialLink, SocialProfiles, OverviewItem };
