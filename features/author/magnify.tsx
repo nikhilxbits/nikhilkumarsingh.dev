@@ -1,14 +1,13 @@
 import { cn } from "cn";
 
 import { Container, ContainerWrap } from "@/components/ui/container";
-import { Magnified, MagnifiedGlass } from "@/components/ui/magnified";
+import { Magnified } from "@/components/ui/magnified";
 
 export function Magnify() {
     return (
         <section className="border-b border-dashed px-1">
             <Container>
-                <Magnified>
-                    <MagnifiedGlass lensSize={120} zoom={3} />
+                <Magnified lensSize={120} zoom={3}>
                     <ContainerWrap
                         className={cn(
                             "text-muted-foreground flex h-56 flex-col items-end justify-end text-end",

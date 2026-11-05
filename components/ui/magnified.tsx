@@ -34,6 +34,8 @@ type PointerPosition = {
 
 type MagnifiedContextValue = { children: ReactNode; pointer: PointerPosition | null; isMagnifiedCopy: boolean };
 
+type MagnifiedProps = ComponentProps<"div"> & { lensSize?: number; zoom?: number };
+
 const MagnifiedContext = createContext<MagnifiedContextValue | undefined>(undefined);
 
 function useMagnifiedContext(component: string) {
@@ -43,15 +45,17 @@ function useMagnifiedContext(component: string) {
     return context;
 }
 
-function Magnified({
+export function Magnified({
     children,
     className,
-    style,
     onPointerEnter,
     onPointerMove,
     onPointerLeave,
+    style,
+    lensSize = 120,
+    zoom = 2,
     ...props
-}: ComponentProps<"div">) {
+}: MagnifiedProps) {
     const [pointer, setPointer] = useState<PointerPosition | null>(null);
 
     function updatePointer(event: ReactPointerEvent<HTMLDivElement>) {
@@ -121,20 +125,13 @@ function Magnified({
         >
             <MagnifiedContext.Provider value={{ children, pointer, isMagnifiedCopy: false }}>
                 {children}
+                <MagnifiedGlass lensSize={lensSize} zoom={zoom} />
             </MagnifiedContext.Provider>
         </div>
     );
 }
 
-function MagnifiedGlass({
-    lensSize = 120,
-    zoom = 2,
-    className
-}: {
-    lensSize?: number;
-    zoom?: number;
-    className?: string;
-}) {
+function MagnifiedGlass({ lensSize, zoom }: { lensSize: number; zoom: number }) {
     const { children, pointer, isMagnifiedCopy } = useMagnifiedContext("MagnifiedGlass");
 
     if (isMagnifiedCopy) return null;
@@ -161,10 +158,7 @@ function MagnifiedGlass({
                         key="magnified-glass"
                         aria-hidden="true"
                         data-slot="magnified-glass"
-                        className={cn(
-                            "bg-background pointer-events-none fixed z-50 overflow-hidden rounded-full",
-                            className
-                        )}
+                        className="bg-background pointer-events-none fixed z-50 overflow-hidden rounded-full"
                         initial={{ left, top, scale: 0, opacity: 0 }}
                         animate={{ left, top, scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
@@ -194,5 +188,3 @@ function MagnifiedGlass({
         </Portal.Root>
     );
 }
-
-export { Magnified, MagnifiedGlass };
