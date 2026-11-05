@@ -1,10 +1,10 @@
 "use client";
 
-import { forwardRef, useEffect, useMemo, useState, type ComponentProps } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { cn } from "cn";
 
-type FlipperProps = Omit<ComponentProps<"div">, "children"> & { duration?: number; text: string };
+type FlipperProps = { duration?: number; text: string; className?: string };
 
 type FlipperItemProps = {
     character: string;
@@ -14,7 +14,7 @@ type FlipperItemProps = {
     reduceMotion: boolean;
 };
 
-export function Flipper({ text, duration = 0.5, className, ...props }: FlipperProps) {
+export function Flipper({ text, duration = 0.5, className }: FlipperProps) {
     if (typeof text !== "string") throw new TypeError("Flipper text must be a string.");
     if (!Number.isFinite(duration) || duration < 0)
         throw new RangeError("Flipper duration must be a finite, non-negative number.");
@@ -51,7 +51,6 @@ export function Flipper({ text, duration = 0.5, className, ...props }: FlipperPr
         <div
             data-slot="flipper"
             className={cn("flex items-center gap-0.5 overflow-hidden text-sm font-medium", className)}
-            {...props}
         >
             <div aria-atomic="true" aria-live="polite" className="sr-only">
                 {text}
