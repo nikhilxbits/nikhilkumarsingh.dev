@@ -1,7 +1,14 @@
-import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
+import {
+    IconBrandGithub,
+    IconBrandLinkedin,
+    IconBuilding,
+    IconMailCheck,
+    IconMapPin,
+    IconPhoneCall
+} from "@tabler/icons-react";
 
 import { getFormattedPhoneNumber } from "@/lib/phone-number";
-import type { Author, SocialLink, SocialProfiles } from "./types";
+import type { Author, OverviewItem, SocialLink, SocialProfiles } from "./types";
 
 const AUTHOR_INFO: Author = {
     firstName: "Nikhil Kumar",
@@ -25,7 +32,6 @@ const AUTHOR_INFO: Author = {
     phoneNumber: getFormattedPhoneNumber(process.env.USER_PHONE_NUMBER || "+919876543210"),
     address: "Jaipur, Rajasthan, India 302012",
     website: "https://nikhilkumarsingh.vercel.app",
-    timezone: "Asia/Kolkata",
     keywords: [
         "nikhilkumarsingh",
         "nikhil kumar singh",
@@ -58,4 +64,16 @@ const SOCIAL_PROFILES: SocialProfiles = {
 
 const SOCIAL_LINKS: SocialLink[] = Object.values(SOCIAL_PROFILES);
 
-export { AUTHOR_INFO, SOCIAL_PROFILES, SOCIAL_LINKS };
+const OVERVIEW: OverviewItem[] = [
+    { type: "common", icon: IconBuilding, label: `${AUTHOR_INFO.currentDesignation} at ${AUTHOR_INFO.currentCompany}` },
+    { type: "email-address", icon: IconMailCheck, label: AUTHOR_INFO.email, href: `mailto:${AUTHOR_INFO.email}` },
+    {
+        type: "phone-number",
+        icon: IconPhoneCall,
+        label: AUTHOR_INFO.phoneNumber.phoneNumber,
+        href: AUTHOR_INFO.phoneNumber.uri
+    },
+    { type: "common", icon: IconMapPin, label: AUTHOR_INFO.address }
+];
+
+export { AUTHOR_INFO, SOCIAL_PROFILES, SOCIAL_LINKS, OVERVIEW };
