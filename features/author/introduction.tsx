@@ -2,6 +2,7 @@ import { Suspense } from "react";
 
 import { IconBriefcase } from "@tabler/icons-react";
 import { Container, ContainerWrap } from "@/components/ui/container";
+import { Typewriter } from "@/components/ui/typewriter";
 
 import { AUTHOR_INFO } from "./constants";
 import { Greet, GreetFallback } from "./greet";
@@ -20,8 +21,8 @@ export function Introduction() {
                         <h1 className="scroll-m-20 text-3xl/tight font-bold">I&apos;M {AUTHOR_INFO.displayName}.</h1>
                     </ContainerWrap>
                     <ContainerWrap className="text-muted-foreground flex items-center gap-1.5 md:row-start-5 md:border-e!">
-                        <IconBriefcase className="pointer-events-none size-5 shrink-0" />
-                        <p className="text-sm/6 font-medium">{AUTHOR_INFO.currentDesignation}</p>
+                        <IconBriefcase className="pointer-events-none -mt-px size-4.5 shrink-0" />
+                        <Typewriter words={AUTHOR_INFO.typewriterSentences} pauseDuration={5_000} deletingSpeed={20} />
                     </ContainerWrap>
                 </Container>
             </div>
