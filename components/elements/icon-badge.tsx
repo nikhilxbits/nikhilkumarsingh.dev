@@ -2,6 +2,9 @@ import type { ComponentProps } from "react";
 import { Slot } from "radix-ui";
 import { cn } from "cn";
 
+// Component is inspired by @chanhdai
+// Thanks @chanhdai
+
 type IconBadgeProps = ComponentProps<"div"> & { asChild?: boolean };
 
 export function IconBadge({ className, asChild = false, ...props }: IconBadgeProps) {
