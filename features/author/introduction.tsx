@@ -2,7 +2,7 @@ import { Suspense } from "react";
 
 import { IconBriefcase } from "@tabler/icons-react";
 import { Container, ContainerWrap } from "@/components/ui/container";
-import { Typewriter } from "@/components/ui/typewriter";
+import { Typewriter } from "@/components/elements/typewriter";
 
 import { AUTHOR_INFO } from "./constants";
 import { Greet, GreetFallback } from "./greet";

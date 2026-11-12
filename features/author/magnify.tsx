@@ -1,7 +1,7 @@
 import { cn } from "cn";
 
 import { Container, ContainerWrap } from "@/components/ui/container";
-import { Magnified } from "@/components/ui/magnified";
+import { Magnified } from "@/components/elements/magnified";
 
 export function Magnify() {
     return (

@@ -2,7 +2,7 @@
 
 import { startTransition, useEffect, useState } from "react";
 
-import { Flipper } from "@/components/ui/flipper";
+import { Flipper } from "@/components/elements/flipper";
 import { getGreetingText } from "@/lib/greeting-text";
 import { getFormattedTime } from "@/lib/get-formatted-time";
 

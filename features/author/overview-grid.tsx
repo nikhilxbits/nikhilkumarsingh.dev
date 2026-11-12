@@ -2,7 +2,7 @@ import { cn } from "cn";
 import { IconExternalLink } from "@tabler/icons-react";
 
 import { Container, ContainerWrap } from "@/components/ui/container";
-import { IconBadge } from "@/components/ui/icon-badge";
+import { IconBadge } from "@/components/elements/icon-badge";
 import { Link } from "@/components/ui/link";
 
 import { OVERVIEW } from "./constants";
